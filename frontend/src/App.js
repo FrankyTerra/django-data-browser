@@ -153,7 +153,6 @@ function App(props) {
   const { baseUrl, sortedModels, allModelFields, canMakePublic } = props;
   return (
     <BrowserRouter basename={baseUrl}>
-      <Logo />
       <div id="body">
         <Switch>
           <Route path="/query/:model/:fieldStr?.html">
