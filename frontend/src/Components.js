@@ -464,7 +464,7 @@ function SavedViewList(props) {
   if (!savedViews) return "";
   return (
     <div>
-      <h1>Saved Views</h1>
+      <h1>Представления</h1>
       <div>
         {savedViews.map((view, index) => (
           <div key={index}>
