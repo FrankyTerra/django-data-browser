@@ -9,7 +9,7 @@ import {
   useLocation,
 } from "react-router-dom";
 import "./App.css";
-import { HomePage, QueryPage, Logo, EditSavedView } from "./Components";
+import { HomePage, QueryPage, LogoKS, EditSavedView } from "./Components";
 import { Query, getUrlForQuery, empty } from "./Query";
 import { doGet, fetchInProgress } from "./Util";
 
@@ -153,6 +153,7 @@ function App(props) {
   const { baseUrl, sortedModels, allModelFields, canMakePublic } = props;
   return (
     <BrowserRouter basename={baseUrl}>
+      <LogoKS />
       <div id="body">
         <Switch>
           <Route path="/query/:model/:fieldStr?.html">

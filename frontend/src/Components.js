@@ -292,6 +292,29 @@ function Logo(props) {
   );
 }
 
+function LogoKS() {
+  return (
+    <div className="row">
+      <div className="row">
+        <div>
+          <a href="/">
+            <img src="./logo.png" alt="Автоматизированная информационная система Комитета по строительству" />
+          </a>
+        </div>
+        <div>
+            <div>
+                <span>Автоматизированная информационная система</span>
+            </div>
+            <div>
+                <span>Комитета по строительству</span>
+            </div>
+        </div>
+      </div>
+    </div>
+
+  );
+}
+
 function QueryPage(props) {
   const {
     query,
@@ -506,4 +529,4 @@ function HomePage(props) {
   );
 }
 
-export { HomePage, QueryPage, Logo, EditSavedView };
+export { HomePage, QueryPage, Logo, LogoKS, EditSavedView };

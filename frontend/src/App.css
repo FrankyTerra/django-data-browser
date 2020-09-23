@@ -344,3 +344,7 @@ input.RowLimit {
 .Error {
   color: red;
 }
+
+.row {
+  display: flex;
+}
