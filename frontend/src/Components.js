@@ -319,7 +319,7 @@ function QueryPage(props) {
     results = (
       <Results {...{ query, rows, cols, body, overlay, formatHints }} />
     );
-  else results = <h2>No fields selected</h2>;
+  else results = <h2>Не выбраны поля</h2>;
 
   return (
     <>
@@ -327,7 +327,7 @@ function QueryPage(props) {
       <Filters {...{ query, filters, filterErrors }} />
       <p>
         <span className={length >= query.query.limit ? "Error" : ""}>
-          Limit:{" "}
+          Ограничение:{" "}
           <input
             className="RowLimit"
             type="number"
@@ -337,10 +337,10 @@ function QueryPage(props) {
             }}
             min="1"
           />{" "}
-          - Showing {length} results -{" "}
+          - Показано {length} строк -{" "}
         </span>
-        <a href={query.getUrlForMedia("csv")}>Download as CSV</a> -{" "}
-        <a href={query.getUrlForMedia("json")}>View as JSON</a> -{" "}
+        <a href={query.getUrlForMedia("csv")}>Скачать CSV</a> -{" "}
+        <a href={query.getUrlForMedia("json")}>Просмотр JSON</a> -{" "}
         <Save
           name="View"
           apiUrl={`${baseUrl}api/views/`}
@@ -384,19 +384,19 @@ function EditSavedView(props) {
         <table>
           <tbody>
             <tr>
-              <th>Model:</th>
+              <th>Модель:</th>
               <td>{view.model}</td>
             </tr>
             <tr>
-              <th>Fields:</th>
+              <th>Поля:</th>
               <td>{view.fields.replace(/,/g, "\u200b,")}</td>
             </tr>
             <tr>
-              <th>Filters:</th>
+              <th>Фильтры:</th>
               <td>{view.query.replace(/&/g, "\u200b&")}</td>
             </tr>
             <tr>
-              <th>Limit:</th>
+              <th>Предел:</th>
               <td className="SavedViewLimit">
                 <input
                   className="RowLimit"
@@ -409,7 +409,7 @@ function EditSavedView(props) {
               </td>
             </tr>
             <tr>
-              <th>Created Time:</th>
+              <th>Время создания:</th>
               <td>{view.createdTime}</td>
             </tr>
           </tbody>
@@ -425,7 +425,7 @@ function EditSavedView(props) {
           <table>
             <tbody>
               <tr>
-                <th>Is Public:</th>
+                <th>Открыть доступ:</th>
                 <td>
                   <input
                     type="checkbox"
@@ -437,7 +437,7 @@ function EditSavedView(props) {
                 </td>
               </tr>
               <tr>
-                <th>Public link:</th>
+                <th>Ссылка:</th>
                 <td>{view.public && <CopyText text={view.publicLink} />}</td>
               </tr>
               <tr>
@@ -452,7 +452,7 @@ function EditSavedView(props) {
       </form>
       <div className="SavedViewActions">
         <Delete apiUrl={url} redirectUrl="/" />
-        <Link to="/">Done</Link>
+        <Link to="/">Готово</Link>
       </div>
     </div>
   );
@@ -464,7 +464,7 @@ function SavedViewList(props) {
   if (!savedViews) return "";
   return (
     <div>
-      <h1>Представления</h1>
+      <h1>Сохранённые представления</h1>
       <div>
         {savedViews.map((view, index) => (
           <div key={index}>
@@ -472,7 +472,7 @@ function SavedViewList(props) {
               <Link className="Link" to={view.link}>
                 {view.name} - {view.model}
               </Link>{" "}
-              (<Link to={`/views/${view.pk}.html`}>edit</Link>)
+              (<Link to={`/views/${view.pk}.html`}>редактировать</Link>)
             </p>
             <p>{view.description}</p>
           </div>
