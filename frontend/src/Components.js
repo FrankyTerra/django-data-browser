@@ -298,7 +298,7 @@ function LogoKS() {
       <div className="row">
         <div>
           <a href="/">
-            <img src="images/logo.png" alt="Автоматизированная информационная система Комитета по строительству" />
+            <img src="%PUBLIC_URL%/images/logo.png" alt="" />
           </a>
         </div>
         <div>
