@@ -3,6 +3,7 @@ import { Link, useParams, useHistory } from "react-router-dom";
 import { TLink, SLink, useData, version, Save, Delete, CopyText } from "./Util";
 import { Results } from "./Results";
 import { getPartsForQuery } from "./Query";
+import logo from "../public/images/logo.png";
 import "./App.css";
 
 function FilterValue(props) {
@@ -298,7 +299,7 @@ function LogoKS() {
       <div className="row">
         <div>
           <a href="/">
-            <img src="%PUBLIC_URL%/images/logo.png" alt="" />
+            <img src={logo} alt="" />
           </a>
         </div>
         <div>
