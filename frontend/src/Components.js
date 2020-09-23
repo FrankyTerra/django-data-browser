@@ -19,13 +19,13 @@ function FilterValue(props) {
     return (
       <select {...{ value }} onChange={onChangeEvent} className="FilterValue">
         {[
-          "Sunday",
-          "Monday",
-          "Tuesday",
-          "Wednesday",
-          "Thursday",
-          "Friday",
-          "Saturday",
+          "Воскресенье",
+          "Понедельник",
+          "Вторник",
+          "Среда",
+          "Четверг",
+          "Пятница",
+          "Суббота",
         ].map((weekday) => (
           <option value={weekday}>{weekday}</option>
         ))}
@@ -35,18 +35,18 @@ function FilterValue(props) {
     return (
       <select {...{ value }} onChange={onChangeEvent} className="FilterValue">
         {[
-          "January",
-          "Febuary",
-          "March",
-          "April",
-          "May",
-          "June",
-          "July",
-          "August",
-          "September",
-          "October",
-          "November",
-          "December",
+          "Январь",
+          "Февраль",
+          "Март",
+          "Апрель",
+          "Май",
+          "Июнь",
+          "Июль",
+          "Август",
+          "Сентябрь",
+          "Октябрь",
+          "Ноябрь",
+          "Декабрь",
         ].map((month) => (
           <option value={month}>{month}</option>
         ))}
