@@ -26,7 +26,7 @@ function CopyText(props) {
                     event.target.blur();
                 }}
             >
-                (copy to clipboard)
+                (копировать в буфер)
             </TLink>
         </>
     );
@@ -191,10 +191,10 @@ function Save(props) {
                     );
                 }}
             >
-                Save {name || ""}
+                Сохранить {name || ""}
             </TLink>
         );
-    else if (saving === "saving") return <>Saving {name || ""}</>;
+    else if (saving === "saving") return <>Сохранение {name || ""}</>;
     else {
         const url =
             typeof redirectUrl === "function"
@@ -214,7 +214,7 @@ function Delete(props) {
                     setState("confirm");
                 }}
             >
-                Delete {name || ""}
+                Удалить {name || ""}
             </TLink>
         );
     else if (state === "confirm")
@@ -225,7 +225,7 @@ function Delete(props) {
                     doDelete(apiUrl).then((response) => setState("deleted"));
                 }}
             >
-                Are you sure?
+                Вы уверены?
             </TLink>
         );
     else if (state === "deleting") return "Deleting";

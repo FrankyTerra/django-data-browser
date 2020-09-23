@@ -369,7 +369,7 @@ function EditSavedView(props) {
     <div className="EditSavedView">
       <div className="SavedViewActions">
         <span className="SavedViewTitle">Сохранённые представления</span>
-        <Link to={view.link}>Open</Link>
+        <Link to={view.link}>Открыть</Link>
       </div>
       <form>
         <input
@@ -379,7 +379,7 @@ function EditSavedView(props) {
             setView({ name: event.target.value });
           }}
           className="SavedViewName"
-          placeholder="enter a name"
+          placeholder="Введите имя"
         />
         <table>
           <tbody>
@@ -419,7 +419,7 @@ function EditSavedView(props) {
           onChange={(event) => {
             setView({ description: event.target.value });
           }}
-          placeholder="enter a description"
+          placeholder="Введите описание"
         />
         {canMakePublic && (
           <table>
