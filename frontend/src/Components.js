@@ -368,7 +368,7 @@ function EditSavedView(props) {
   return (
     <div className="EditSavedView">
       <div className="SavedViewActions">
-        <span className="SavedViewTitle">Saved View</span>
+        <span className="SavedViewTitle">Сохранённые представления</span>
         <Link to={view.link}>Open</Link>
       </div>
       <form>
@@ -487,7 +487,7 @@ function HomePage(props) {
   return (
     <div className="Index">
       <div>
-        <h1>Models</h1>
+        <h1>Модели</h1>
         <div>
           {sortedModels.map((model) => (
             <div key={model}>
