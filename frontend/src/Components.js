@@ -295,18 +295,18 @@ function Logo(props) {
 
 function LogoKS() {
   return (
-    <div className="row">
+    <div className="header">
       <div className="row">
-        <div>
+        <div className="header__logo">
           <a href="/">
             <img src={logo} alt="" />
           </a>
         </div>
-        <div>
-            <div>
+        <div className="header__text text">
+            <div className="text__main">
                 <span>Автоматизированная информационная система</span>
             </div>
-            <div>
+            <div className="text__sub">
                 <span>Комитета по строительству</span>
             </div>
         </div>

@@ -348,3 +348,34 @@ input.RowLimit {
 .row {
   display: flex;
 }
+
+.header {
+  display: flex;
+  background-color: #ffffff;
+  border-bottom: 1px solid #D0E1E8;
+  padding: 15px;
+}
+
+.header__logo img {
+  height: 34px;
+  width: 29px;
+  margin-right: 10px;
+}
+
+.header__text {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.header__text .text__main {
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 16px;
+  color: #000000;
+}
+
+.header__text .text__sub {
+  font-size: 12px;
+  line-height: 15px;
+  color: #78909C;
+}
