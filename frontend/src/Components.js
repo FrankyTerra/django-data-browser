@@ -390,7 +390,7 @@ function EditSavedView(props) {
   return (
     <div className="EditSavedView">
       <div className="SavedViewActions">
-        <span className="SavedViewTitle">Сохранённые представления</span>
+        <span className="SavedViewTitle">Сохранение запроса</span>
         <Link to={view.link}>Открыть</Link>
       </div>
       <form>
@@ -486,7 +486,7 @@ function SavedViewList(props) {
   if (!savedViews) return "";
   return (
     <div>
-      <h1>Сохранения запроса</h1>
+      <h1>Сохранённые представления</h1>
       <div>
         {savedViews.map((view, index) => (
           <div key={index}>
