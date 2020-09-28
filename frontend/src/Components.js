@@ -590,7 +590,7 @@ function HomePage(props) {
                 to={`/query/${model}/.html?${allModelFields[model].defaultFilters}`}
                 className="Link"
               >
-                {model}
+                {validNames[model]}
               </Link>
             </div>
           ))}
