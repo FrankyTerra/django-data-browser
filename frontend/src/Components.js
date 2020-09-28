@@ -4,6 +4,7 @@ import { TLink, SLink, useData, version, Save, Delete, CopyText } from "./Util";
 import { Results } from "./Results";
 import { getPartsForQuery } from "./Query";
 import logo from "./logo.png";
+import { validNames } from './fieldNames';
 import "./App.css";
 
 function FilterValue(props) {
@@ -231,44 +232,11 @@ function Filters(props) {
 }
 
 function PrettyNameTranslate(initialText) {
-  switch (initialText) {
-    case 'count':
-      return 'Количество';
-      break;
-    case 'day':
-      return 'День';
-      break;
-    case 'is_null':
-      return 'Пустое значение';
-      break;
-    case 'iso_week':
-      return 'Неделя';
-      break;
-    case 'iso_year':
-      return 'Год';
-      break;
-    case 'max':
-      return 'Максимальное значение';
-      break;
-    case 'min':
-      return 'Минимальное значение';
-      break;
-    case 'month':
-      return 'Месяц';
-      break;
-    case 'average':
-      return 'Среднее значение';
-      break;
-    case 'sum':
-      return 'Сумма';
-      break;
-    case 'quarter':
-      return 'Квартал';
-      break;
-    default:
-      return initialText;
-      break;
-  }
+  let result = initialText;
+  if (validNames[initialText]) {
+    result = validNames[initialText];
+  };
+  return result;
 }
 
 class Field extends React.Component {
@@ -286,6 +254,11 @@ class Field extends React.Component {
   render() {
     const { query, path, prettyPath, modelField } = this.props;
     const type = query.getType(modelField);
+
+    if (PrettyNameTranslate(modelField.prettyName) === modelField.prettyName) {
+      return null;
+    }
+
     return (
       <>
         <tr>
