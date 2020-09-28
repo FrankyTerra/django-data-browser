@@ -255,10 +255,6 @@ class Field extends React.Component {
     const { query, path, prettyPath, modelField } = this.props;
     const type = query.getType(modelField);
 
-    if (PrettyNameTranslate(modelField.prettyName) === modelField.prettyName) {
-      return null;
-    }
-
     return (
       <>
         <tr>
