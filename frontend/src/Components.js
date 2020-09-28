@@ -310,6 +310,13 @@ function AllFields(props) {
       <tbody>
         {modelFields.sortedFields.map((fieldName) => {
           const modelField = modelFields.fields[fieldName];
+          console.log('modelField.prettyName: ', modelField.prettyName);
+          if (!validNames[modelField.prettyName]) {
+            console.log('нет такого');
+            return null;
+          } else {
+            console.log('есть такое');
+          }
           return (
             <Field
               key={fieldName}
