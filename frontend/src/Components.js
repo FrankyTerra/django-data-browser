@@ -230,6 +230,47 @@ function Filters(props) {
   );
 }
 
+function PrettyNameTranslate(initialText) {
+  switch (key) {
+    case 'count':
+      return 'Количество';
+      break;
+    case 'day':
+      return 'День';
+      break;
+    case 'is_null':
+      return 'Пустое значение';
+      break;
+    case 'iso_week':
+      return 'Неделя';
+      break;
+    case 'iso_year':
+      return 'Год';
+      break;
+    case 'max':
+      return 'Максимальное значение';
+      break;
+    case 'min':
+      return 'Минимальное значение';
+      break;
+    case 'month':
+      return 'Месяц';
+      break;
+    case 'average':
+      return 'Среднее значение';
+      break;
+    case 'sum':
+      return 'Сумма';
+      break;
+    case 'quarter':
+      return 'Квартал';
+      break;
+    default:
+      return initialText;
+      break;
+  }
+}
+
 class Field extends React.Component {
   constructor(props) {
     super(props);
@@ -269,10 +310,10 @@ class Field extends React.Component {
                   query.addField(path, prettyPath, type.defaultSort)
                 }
               >
-                {modelField.prettyName}
+                {PrettyNameTranslate(modelField.prettyName)}
               </TLink>
             ) : (
-              modelField.prettyName
+              PrettyNameTranslate(modelField.prettyName)
             )}
           </td>
         </tr>
