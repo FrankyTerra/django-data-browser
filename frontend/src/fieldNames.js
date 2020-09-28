@@ -1,3 +1,18 @@
+export const invalidNames = [
+  'month_start',
+  'week_day',
+  'week_start',
+  'year',
+  'date',
+  'hour',
+  'minute',
+  'month_start',
+  'second',
+  'week_day',
+  'week_start',
+  'year'
+];
+
 export const validNames = {
   'count': 'Количество',
   'day': 'День',

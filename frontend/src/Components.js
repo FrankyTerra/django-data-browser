@@ -4,7 +4,7 @@ import { TLink, SLink, useData, version, Save, Delete, CopyText } from "./Util";
 import { Results } from "./Results";
 import { getPartsForQuery } from "./Query";
 import logo from "./logo.png";
-import { validNames } from './fieldNames';
+import { validNames, invalidNames } from './fieldNames';
 import "./App.css";
 
 function FilterValue(props) {
@@ -310,14 +310,18 @@ function AllFields(props) {
       <tbody>
         {modelFields.sortedFields.map((fieldName) => {
           const modelField = modelFields.fields[fieldName];
-          return (
-            <Field
-              key={fieldName}
-              {...{ query, modelField }}
-              path={path.concat([fieldName])}
-              prettyPath={prettyPath.concat([modelField.prettyName])}
-            />
-          );
+          if (invalidNames.includes(fieldName)) {
+            return null;
+          } else {
+            return (
+              <Field
+                key={fieldName}
+                {...{ query, modelField }}
+                path={path.concat([fieldName])}
+                prettyPath={prettyPath.concat([modelField.prettyName])}
+              />
+            );
+          }
         })}
       </tbody>
     </table>
