@@ -555,7 +555,7 @@ function SavedViewList(props) {
           <div key={index}>
             <p>
               <Link className="Link" to={view.link}>
-                {view.name} - {view.model}
+                {view.name} - {validNames[view.model]}
               </Link>{" "}
               (<Link to={`/views/${view.pk}.html`}>редактировать</Link>)
             </p>
