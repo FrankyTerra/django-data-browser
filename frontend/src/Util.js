@@ -191,10 +191,10 @@ function Save(props) {
                     );
                 }}
             >
-                Сохранить {name || ""}
+                Сохранить
             </TLink>
         );
-    else if (saving === "saving") return <>Сохранение {name || ""}</>;
+    else if (saving === "saving") return <>Сохранение</>;
     else {
         const url =
             typeof redirectUrl === "function"

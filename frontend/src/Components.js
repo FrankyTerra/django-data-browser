@@ -363,8 +363,6 @@ function QueryPage(props) {
           />{" "}
           - Показано {length} строк -{" "}
         </span>
-        <a href={query.getUrlForMedia("csv")}>Скачать CSV</a> -{" "}
-        <a href={query.getUrlForMedia("json")}>Просмотр JSON</a> -{" "}
         <Save
           name="View"
           apiUrl={`${baseUrl}api/views/`}
@@ -411,15 +409,15 @@ function EditSavedView(props) {
               <th>Модель:</th>
               <td>{view.model}</td>
             </tr>
-            <tr>
+            <tr style={{display: 'none'}}>
               <th>Поля:</th>
               <td>{view.fields.replace(/,/g, "\u200b,")}</td>
             </tr>
-            <tr>
+            <tr style={{display: 'none'}}>
               <th>Фильтры:</th>
               <td>{view.query.replace(/&/g, "\u200b&")}</td>
             </tr>
-            <tr>
+            <tr style={{display: 'none'}}>
               <th>Предел:</th>
               <td className="SavedViewLimit">
                 <input
@@ -445,7 +443,7 @@ function EditSavedView(props) {
           }}
           placeholder="Введите описание"
         />
-        {canMakePublic && (
+        {2 === 3 && (
           <table>
             <tbody>
               <tr>
@@ -488,7 +486,7 @@ function SavedViewList(props) {
   if (!savedViews) return "";
   return (
     <div>
-      <h1>Сохранённые представления</h1>
+      <h1>Сохранения запроса</h1>
       <div>
         {savedViews.map((view, index) => (
           <div key={index}>
