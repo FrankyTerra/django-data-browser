@@ -341,7 +341,7 @@ function ModelSelector(props) {
       value={model}
     >
       {sortedModels.map((model) => (
-        <option key={model}>{model}</option>
+        <option key={model}>{validNames[model]}</option>
       ))}
     </select>
   );
