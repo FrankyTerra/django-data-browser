@@ -470,7 +470,7 @@ function EditSavedView(props) {
           <tbody>
             <tr>
               <th>Модель:</th>
-              <td>{view.model}</td>
+              <td>{validNames[view.model]}</td>
             </tr>
             <tr style={{display: 'none'}}>
               <th>Поля:</th>
