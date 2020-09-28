@@ -142,6 +142,18 @@ function ChoiceText(initialText) {
     case 'is_null':
       return 'Пустое значение';
       break;
+    case 'gt':
+      return 'Больше';
+      break;
+    case 'gte':
+      return 'Больше или равно';
+      break;
+    case 'lt':
+      return 'Меньше';
+      break;
+    case 'lte':
+      return 'Меньше или равно';
+      break;
     default:
       return initialText
       break;
