@@ -1385,7 +1385,7 @@
                     "choices": [],
                     "concrete": true,
                     "model": null,
-                    "prettyName": "std_dev",
+                    "prettyName": "std-dev",
                     "type": "number"
                 },
                 "sum": {
