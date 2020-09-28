@@ -231,7 +231,7 @@ function Filters(props) {
 }
 
 function PrettyNameTranslate(initialText) {
-  switch (key) {
+  switch (initialText) {
     case 'count':
       return 'Количество';
       break;
