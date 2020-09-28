@@ -107,6 +107,47 @@ function FilterValue(props) {
     );
 }
 
+function ChoiceText(initialText) {
+  switch (initialText) {
+    case 'equals':
+      return 'Равно';
+      break;
+    case 'contains':
+      return 'Содержит';
+      break;
+    case 'starts_with':
+      return 'Начинается с';
+      break;
+    case 'ends_with':
+      return 'Заканчивается на';
+      break;
+    case 'regex':
+      return 'Регулярное выражение (совпадение)';
+      break;
+    case 'not_equals':
+      return 'Не равно';
+      break;
+    case 'not_contains':
+      return 'Не содержит';
+      break;
+    case 'not_starts_with':
+      return 'Начинается не с';
+      break;
+    case 'not_ends_with':
+      return 'Заканчивается не на';
+      break;
+    case 'not_regex':
+      return 'Регулярное выражение (исключение)';
+      break;
+    case 'is_null':
+      return 'Пустое значение';
+      break;
+    default:
+      return initialText
+      break;
+  }
+}
+
 class Filter extends React.Component {
   render() {
     const {
@@ -138,7 +179,7 @@ class Filter extends React.Component {
           >
             {type.sortedLookups.map((lookupName) => (
               <option key={lookupName} value={lookupName}>
-                {lookupName.replace(/_/g, " ")}
+                {ChoiceText(lookupName)}
               </option>
             ))}
           </select>
