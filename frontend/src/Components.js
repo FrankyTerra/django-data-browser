@@ -569,12 +569,22 @@ function SavedViewList(props) {
 
 function HomePage(props) {
   const { sortedModels, allModelFields, baseUrl } = props;
+
+  const list = [];
+
+  for (let index = 0; index < sortedModels.length; index++) {
+    const element = sortedModels[index];
+    if (validNames[element]) {
+      list.push(element);
+    }
+  }
+
   return (
     <div className="Index">
       <div>
         <h1>Модели</h1>
         <div>
-          {sortedModels.map((model) => (
+          {list.map((model) => (
             <div key={model}>
               <Link
                 to={`/query/${model}/.html?${allModelFields[model].defaultFilters}`}
