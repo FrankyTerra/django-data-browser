@@ -10,6 +10,7 @@ import sys
 import django.contrib.admin.views.decorators as admin_decorators
 import sqlparse
 from django import http
+from django.contrib.auth.decorators import login_required
 from django.core.serializers.json import DjangoJSONEncoder
 from django.shortcuts import get_object_or_404
 from django.template import engines, loader
@@ -112,14 +113,14 @@ def _get_config(request):
     }
 
 
-@admin_decorators.staff_member_required
+@login_required
 def query_ctx(request, *, model_name="", fields=""):
     config = _get_config(request)
     return JsonResponse(config)
 
 
 @csrf.ensure_csrf_cookie
-@admin_decorators.staff_member_required
+@login_required
 def query_html(request, *, model_name="", fields=""):
     config = _get_config(request)
     config = json.dumps(config, cls=DjangoJSONEncoder)
@@ -140,7 +141,7 @@ def query_html(request, *, model_name="", fields=""):
     return TemplateResponse(request, template, {"config": config, "version": version})
 
 
-@admin_decorators.staff_member_required
+@login_required
 def query(request, *, model_name, fields="", media):
     profiler = None
     if media in {"profile", "pstats"}:
