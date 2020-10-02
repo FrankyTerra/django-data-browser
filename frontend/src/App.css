@@ -380,3 +380,8 @@ input.RowLimit {
   line-height: 15px;
   color: #78909C;
 }
+
+.model_list {
+  height: 600px;
+    overflow-y: auto;
+}

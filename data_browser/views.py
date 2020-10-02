@@ -119,7 +119,7 @@ def query_ctx(request, *, model_name="", fields=""):
     return JsonResponse(config)
 
 
-@csrf.ensure_csrf_cookie
+# @csrf.ensure_csrf_cookie
 @login_required
 def query_html(request, *, model_name="", fields=""):
     config = _get_config(request)
@@ -299,7 +299,7 @@ def _get_from_js_dev_server(request):  # pragma: no cover
     return getattr(requests, method)(upstream_url, stream=True)
 
 
-@csrf.csrf_exempt
+# @csrf.csrf_exempt
 def proxy_js_dev_server(request, path):  # pragma: no cover
     """
     Proxy HTTP requests to the frontend dev server in development.

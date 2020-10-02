@@ -345,7 +345,7 @@ function ModelSelector(props) {
       value={model}
     >
       {sortedModels.map((model) => (
-        <option key={model}>{validNames[model]}</option>
+        <option value={model}>{validNames[model]}</option>
       ))}
     </select>
   );
@@ -585,7 +585,7 @@ function HomePage(props) {
 
   return (
     <div className="Index">
-      <div>
+      <div className='model_list'>
         <h1>Модели</h1>
         <div>
           {list.map((model) => (
