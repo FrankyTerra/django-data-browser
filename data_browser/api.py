@@ -1,6 +1,6 @@
 import json
 
-import django.contrib.admin.views.decorators as admin_decorators
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import get_object_or_404
 
 from .common import HttpResponse, JsonResponse, can_make_public
@@ -61,7 +61,7 @@ def get_queryset(request):
     return View.objects.filter(owner=request.user)
 
 
-@admin_decorators.staff_member_required
+@login_required
 def view_list(request):
     global_data.request = request
 
@@ -79,7 +79,7 @@ def view_list(request):
         return HttpResponse(status=400)
 
 
-@admin_decorators.staff_member_required
+@login_required
 def view_detail(request, pk):
     global_data.request = request
     view = get_object_or_404(get_queryset(request), pk=pk)

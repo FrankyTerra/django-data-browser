@@ -119,7 +119,7 @@ def query_ctx(request, *, model_name="", fields=""):
     return JsonResponse(config)
 
 
-# @csrf.ensure_csrf_cookie
+@csrf.ensure_csrf_cookie
 @login_required
 def query_html(request, *, model_name="", fields=""):
     config = _get_config(request)
