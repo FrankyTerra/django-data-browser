@@ -96,7 +96,7 @@ def view_list(request):
 
             query = res.query
 
-            report = ManualReport.objects.update_or_create(
+            ManualReport.objects.update_or_create(
                 name=view.name,
                 main_model=ct,
                 defaults={
@@ -144,11 +144,12 @@ def view_detail(request, pk):
 
             query = res.query
 
-            report = ManualReport.objects.update_or_create(
+            ManualReport.objects.update_or_create(
                 name=view.name,
                 main_model=ct,
                 defaults={
                     'sql': str(query),
+                    'public': True,
                 }
             )
         except Exception as e:
