@@ -101,6 +101,7 @@ def view_list(request):
                 main_model=ct,
                 defaults={
                     'sql': str(query),
+                    'public': True,
                 }
             )
         except Exception as e:
