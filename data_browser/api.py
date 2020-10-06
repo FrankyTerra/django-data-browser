@@ -74,6 +74,37 @@ def view_list(request):
         )
     elif request.method == "POST":
         view = View.objects.create(owner=request.user, **deserialize(request))
+        try:
+            from reports.models import ManualReport
+            from django.contrib.contenttypes.models import ContentType
+            from .orm_results import get_result_queryset, _rows_sub_query, _cols_sub_query
+            from .orm_admin import get_models
+            from .query import BoundQuery
+
+            app, model_name = view.model_name.split('.')
+            ct = ContentType.objects.get(app_label=app.lower(), model=model_name.lower())
+            orm_models = get_models(request)
+            bound_query = BoundQuery.bind(view.get_query(), orm_models)
+
+            if bound_query.bound_col_fields and bound_query.bound_row_fields:
+                res = get_result_queryset(request, bound_query, orm_models)
+                rows_res = get_result_queryset(request, _rows_sub_query(bound_query), orm_models)
+
+                cols_res = get_result_queryset(request, _cols_sub_query(bound_query), orm_models)
+            else:
+                res = get_result_queryset(request, bound_query, orm_models)
+
+            query = res.query
+
+            report = ManualReport.objects.update_or_create(
+                name=view.name,
+                main_model=ct,
+                defaults={
+                    'sql': str(query),
+                }
+            )
+        except Exception as e:
+            pass
         return JsonResponse(serialize(view))
     else:
         return HttpResponse(status=400)
@@ -90,6 +121,37 @@ def view_detail(request, pk):
         for k, v in deserialize(request).items():
             setattr(view, k, v)
         view.save()
+        try:
+            from reports.models import ManualReport
+            from django.contrib.contenttypes.models import ContentType
+            from .orm_results import get_result_queryset, _rows_sub_query, _cols_sub_query
+            from .orm_admin import get_models
+            from .query import BoundQuery
+
+            app, model_name = view.model_name.split('.')
+            ct = ContentType.objects.get(app_label=app.lower(), model=model_name.lower())
+            orm_models = get_models(request)
+            bound_query = BoundQuery.bind(view.get_query(), orm_models)
+
+            if bound_query.bound_col_fields and bound_query.bound_row_fields:
+                res = get_result_queryset(request, bound_query, orm_models)
+                rows_res = get_result_queryset(request, _rows_sub_query(bound_query), orm_models)
+
+                cols_res = get_result_queryset(request, _cols_sub_query(bound_query), orm_models)
+            else:
+                res = get_result_queryset(request, bound_query, orm_models)
+
+            query = res.query
+
+            report = ManualReport.objects.update_or_create(
+                name=view.name,
+                main_model=ct,
+                defaults={
+                    'sql': str(query),
+                }
+            )
+        except Exception as e:
+            pass
         return JsonResponse(serialize(view))
     elif request.method == "DELETE":
         view.delete()
